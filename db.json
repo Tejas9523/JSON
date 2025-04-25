@@ -1,0 +1,105 @@
+{
+  "registration": [
+    {
+      "id": "be2b",
+      "name": "Tejas Pawar",
+      "email": "abc@gmail.com",
+      "password": "abc123",
+      "phone": "8796612190",
+      "usertype": "organizer"
+    },
+    {
+      "id": "efc1",
+      "name": "Vedant Wanikar",
+      "email": "lmn@gmail.com",
+      "password": "lmn123",
+      "phone": "9977668866",
+      "usertype": "user"
+    },
+    {
+      "id": "08d6",
+      "name": "Adesh",
+      "email": "xyz@gmail.com",
+      "password": "xyz123",
+      "phone": "4455667788",
+      "usertype": "user"
+    },
+    {
+      "id": "b83c",
+      "name": "Arjun",
+      "email": "uvw@gmail.com",
+      "password": "uvw123",
+      "phone": "8855774499",
+      "usertype": "organizer"
+    },
+    {
+      "id": "c4af",
+      "name": "Rahul",
+      "email": "rahul@gmail.com",
+      "password": "rahul123",
+      "phone": "8866774499",
+      "usertype": "user"
+    }
+  ],
+  "events": [
+    {
+      "title": "Diwali",
+      "datetime": "2025-04-20T07:05:00.000Z",
+      "location": "Pune",
+      "capacity": 20,
+      "id": "7af7"
+    },
+    {
+      "id": "b750",
+      "title": "Holi",
+      "datetime": "2025-04-21T18:04",
+      "location": "Baner",
+      "description": "Holi Festival",
+      "capacity": 50,
+      "organizerName": "Tejas Pawar",
+      "organizerEmail": "abc@gmail.com"
+    },
+    {
+      "title": "Eassy Competition",
+      "datetime": "2025-04-23T07:00:00.000Z",
+      "location": "Dighi",
+      "capacity": 1,
+      "id": "bc8a"
+    },
+    {
+      "title": "Tata Cars",
+      "datetime": "2025-04-22T20:30:00.000Z",
+      "location": "Pune",
+      "capacity": 2,
+      "id": "6b93"
+    }
+  ],
+  "currentuser": [],
+  "booking": [
+    {
+      "id": "0ae3",
+      "userId": "efc1",
+      "eventId": "7af7"
+    },
+    {
+      "id": "d3f2",
+      "userId": "efc1",
+      "eventId": "b750"
+    },
+    {
+      "id": "631e",
+      "userId": "08d6",
+      "eventId": "b750"
+    },
+    {
+      "id": "646b",
+      "userId": "efc1",
+      "eventId": "6b93"
+    },
+    {
+      "id": "9c7c",
+      "userId": "c4af",
+      "eventId": "bc8a"
+    }
+  ]
+}

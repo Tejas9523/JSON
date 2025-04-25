@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Organizer Dashboard - Event Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="style.css" /> <!-- Custom CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+<body class="bg-light text-dark">
+    <!-- header -->
+    <header class="p-3 mb-4 shadow-sm d-flex justify-content-between align-items-center">
+        <h5 class="ms-1"><i class="bi bi-calendar2-event"></i> Organizer Dashboard</h5>
+        <div class="dropdown">
+            <button class="btn text-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span id="em"></span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item text-danger" href="#" onclick="logout()"><i
+                        class="bi bi-box-arrow-right me-1"></i>
+                    Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- sidebar -->
+            <nav class="col-lg-3 col-md-3 mb-4 mb-md-0">
+                <div class="card border-0 shadow-sm vh-100 ">
+                    <div class="card-body px-3 py-4">
+                        <ul class="nav nav-pills flex-column gap-2" id="sidebarMenu">
+                            <li class="nav-item"><a class="nav-link" href="organizer_Dashboard.html"><i
+                                        class="bi bi-person-circle"></i>
+                                    Profile</a></li>
+                            <li class="nav-item"><a class="nav-link" href="add-event.html"><i
+                                        class="bi bi-plus-circle"></i> Add
+                                    Event</a></li>
+                            <li class="nav-item"><a class="nav-link" href="my-events.html"><i
+                                        class="bi bi-calendar2-week"></i>
+                                    My Events</a></li>
+                            <li class="nav-item"><a class="nav-link" href="analytics.html"><i
+                                        class="bi bi-graph-up"></i>
+                                    Analytics</a></li>
+                            <li class="nav-item"><a class="nav-link" href="reports.html"><i
+                                        class="bi bi-clipboard-data"></i>
+                                    Reports</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="col-lg-9 col-md-9">
+                <!-- My Events Section -->
+                <section id="myEventsSection" class="section-content">
+                    <!-- Edit Event Popup -->
+                    <div id="editPopupOverlay" class="popup-overlay" style="display: none;">
+                        <div class="popup-box">
+                            <h2>Edit Event</h2>
+                            <form id="editEventForm" onsubmit="return updateEvent(event)">
+                                <input type="hidden" id="editEventId" />
+                                <label>Title:</label>
+                                <input type="text" id="editTitle" required />
+
+                                <label>Date & Time:</label>
+                                <input type="datetime-local" id="editDatetime" required />
+
+                                <label>Location:</label>
+                                <input type="text" id="editLocation" required />
+
+                                <label>Capacity:</label>
+                                <input type="number" id="editCapacity" min="1" />
+
+                                <div class="popup-actions">
+                                    <button type="submit" class="btn btn-success">Update</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        onclick="closeEditPopup()">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <h4 class="mb-3"><i class="bi bi-calendar2-week"></i> Events</h4>
+                    <hr style="width:100% height">
+                    <div class="mb-3">
+                    </div>
+                    <div id="organizerEvents"></div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal for Registrations -->
+    <div class="modal fade" id="registrationsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-people-fill"></i> Event Registrations</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalEventTitle" class="mb-2 fw-bold"></div>
+                    <div>Registered Users (<span id="modalRegCount"></span>):</div>
+                    <ul class="list-group list-group-flush mt-2" id="modalUserList"></ul>
+                </div>
+                <div class="modal-footer"><button type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ... scripts ... -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="my-events.js"></script>
+</body>
+
+</html>
